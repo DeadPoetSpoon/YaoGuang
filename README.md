@@ -1,6 +1,6 @@
 # YaoGuang
 Vuforia AR and BaiduMap
 
-BaiduMap --> [ZhaoYirun](https://github.com/yirunzhao/yaoguangmap)
-Unity And Vuforia --> me
-Assets --> ChenHanchun, CaiMinrui, SongChaoyi
+BaiduMap --> [ZhaoYirun](https://github.com/yirunzhao/yaoguangmap)<br>
+Unity And Vuforia --> me<br>
+Assets --> ChenHanchun, CaiMinrui, SongChaoyi<br>
