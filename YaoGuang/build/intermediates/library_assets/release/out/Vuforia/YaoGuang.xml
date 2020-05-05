@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="ly" size="4.000000 2.818737" />
+    <ImageTarget name="rtzj" size="3.400000 4.016504" />
+    <ImageTarget name="ln" size="2.000000 1.477786" />
+    <ImageTarget name="F4syt" size="1.000000 0.624442" />
+    <ImageTarget name="F4zt" size="2.000000 1.550945" />
+    <ImageTarget name="F3zsp" size="60.000000 191.388885" />
+    <ImageTarget name="F4zsp" size="60.000000 243.625000" />
+    <ImageTarget name="F3zt" size="2.000000 2.696129" />
+    <ImageTarget name="F3syt" size="1.500000 0.950215" />
+    <ImageTarget name="F3ft3" size="3.500000 2.500000" />
+    <ImageTarget name="F3ft1" size="3.000000 4.706871" />
+    <ImageTarget name="F3ft" size="2.500000 2.297980" />
+    <ImageTarget name="F3cs" size="1.500000 1.444886" />
+  </Tracking>
+</QCARConfig>

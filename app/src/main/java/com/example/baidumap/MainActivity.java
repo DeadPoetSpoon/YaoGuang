@@ -6,10 +6,12 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.res.Configuration;
 import android.graphics.Paint;
 import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -51,6 +53,7 @@ import com.baidu.mapapi.search.route.OnGetRoutePlanResultListener;
 import com.baidu.mapapi.search.route.RoutePlanSearch;
 import com.baidu.mapapi.search.route.TransitRouteResult;
 import com.baidu.mapapi.search.route.WalkingRouteResult;
+import com.unity3d.player.UnityPlayer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -101,6 +104,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //Unity Fragment
+    private UnityFragment unityFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -127,10 +132,16 @@ public class MainActivity extends AppCompatActivity {
 
         etKeyword = findViewById(R.id.et_keyword);
 
-
-
-
+        //添加Unity至Fragment
+        unityFragment = new UnityFragment();
+        getSupportFragmentManager().beginTransaction().add(R.id.fl_container_a,unityFragment).commitAllowingStateLoss();
+        //初始化UnityPlayer
+        Constants.mUnityPlayer = new UnityPlayer(this);
+        int glesMode = Constants.mUnityPlayer.getSettings().getInt("gles_mode",1);
+        Constants.mUnityPlayer.init(glesMode,false);
     }
+
+
 
     private void initMapView(){
         //这是设置坐标
@@ -259,7 +270,7 @@ public class MainActivity extends AppCompatActivity {
                     // 添加新的overlay
                     overlay.addToMap();
                 }else{
-                    Toast.makeText(MainActivity.this, "这里是else", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(MainActivity.this, "这里是else", Toast.LENGTH_SHORT).show();
                     Log.d("室内导航错误信息",indoorRouteResult.error.toString());
                     Log.d("室内搜索的路径条数", indoorRouteResult.getRouteLines()==null?"是null":indoorRouteResult.getRouteLines().size()+"");
                 }
@@ -316,7 +327,7 @@ public class MainActivity extends AppCompatActivity {
                     indoorPoiOverlay.zoomToSpan();
                     Log.d("TAG", "onGetPoiIndoorResult: 调用成功");
                     if(indoorInfoList == null){
-                        Toast.makeText(MainActivity.this, "indoorinfolist还是null", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(MainActivity.this, "indoorinfolist还是null", Toast.LENGTH_SHORT).show();
                     }
                 }
                 else{
@@ -373,8 +384,8 @@ public class MainActivity extends AppCompatActivity {
                 // 把poi再画上去
                 mPoiSearch.searchPoiIndoor(new PoiIndoorOption().poiIndoorWd(etKeyword.getText().toString()).poiIndoorBid(mBaiduMap.getFocusedBaseIndoorMapInfo().getID()));
                 // 画出起点终点以及导航
-//                PaintHelper.makeInfoWindow(MainActivity.this,mBaiduMap,info.latLng,info.floor);
-                PaintHelper.makeTextMarker(mBaiduMap,info.latLng,info.floor,255,12,0);
+                PaintHelper.makeInfoWindow(MainActivity.this,mBaiduMap,info.latLng,info.floor);
+//                PaintHelper.makeTextMarker(mBaiduMap,info.latLng,info.floor,0xaaffff00,72,0xffff00ff);
                 PaintHelper.makePointMarker(mBaiduMap,info.latLng,R.drawable.icon_en);
                 // 这里先设置成创意城的某一点 114.363585,30.532735
                 LatLng creativeCity = new LatLng(30.532735,114.363585);
@@ -387,13 +398,19 @@ public class MainActivity extends AppCompatActivity {
                 line.add(creativeCity);
                 line.add(info.latLng);
                 PaintHelper.drawMyRoute(mBaiduMap,line);
+                //并将导航信息传给Unity
+                String[] name = {"f4zt","f3zt","f3zsp","f4zsp","f3ft","f3ft3","f3ft1"};
+                for (int i=0;i<7;i++){
+                    UnityPlayer.UnitySendMessage(name[i],"upORdown",info.floor);
+                }
+
             }
         });
 
         dialog.setNegativeButton("取消", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(MainActivity.this,"你取消了导航", Toast.LENGTH_LONG);
+                //Toast.makeText(MainActivity.this,"你取消了导航", Toast.LENGTH_LONG);
             }
         });
 
@@ -431,22 +448,37 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
+        Constants.mUnityPlayer.resume();
         super.onResume();
         mMapView.onResume();
     }
 
     @Override
     protected void onPause() {
+        Constants.mUnityPlayer.pause();
         super.onPause();
         mMapView.onPause();
     }
 
     @Override
     protected void onDestroy() {
+        Constants.mUnityPlayer.quit();
         super.onDestroy();
         mMapView.onDestroy();
         mSearch.destroy();
     }
 
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        Constants.mUnityPlayer.configurationChanged(newConfig);
+        super.onConfigurationChanged(newConfig);
+    }
+
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        if(event.getAction() == KeyEvent.ACTION_MULTIPLE)
+            return Constants.mUnityPlayer.onKeyMultiple(event.getKeyCode(),event.getRepeatCount(),event);
+        return super.dispatchKeyEvent(event);
+    }
 }
 

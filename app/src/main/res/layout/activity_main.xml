@@ -27,11 +27,17 @@
             android:textSize="24sp"/>
     </LinearLayout>
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/fl_container_a"
+        android:layout_weight="1"
+        ></FrameLayout>
 
     <com.baidu.mapapi.map.MapView
         android:id="@+id/bmapView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="200dp"
         android:clickable="true"
         />
 

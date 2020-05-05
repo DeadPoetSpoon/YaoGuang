@@ -79,8 +79,10 @@ public class PaintHelper {
     public static Button makeInfoWindow(Activity activity, BaiduMap mBaiduMap, LatLng point, String text){
         //使用Button创建
         Button button = new Button(activity.getApplicationContext());
-        button.setBackgroundResource(R.drawable.button_info_window);
+        button.setBackgroundResource(R.drawable.popup_left);
         button.setText(text);
+        button.setWidth(15);
+        button.setHeight(15);
 
 
         InfoWindow mInfowWindow = new InfoWindow(button,point,-100);

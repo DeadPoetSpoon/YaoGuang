@@ -1,0 +1,41 @@
+-- Merging decision tree log ---
+manifest
+ADDED from F:\AndroidStudioProjects\yaoguangmap\YaoGuang\src\main\AndroidManifest.xml:2:1-3:12
+INJECTED from F:\AndroidStudioProjects\yaoguangmap\YaoGuang\src\main\AndroidManifest.xml:2:1-3:12
+INJECTED from F:\AndroidStudioProjects\yaoguangmap\YaoGuang\src\main\AndroidManifest.xml:2:1-3:12
+INJECTED from F:\AndroidStudioProjects\yaoguangmap\YaoGuang\src\main\AndroidManifest.xml:2:1-3:12
+INJECTED from F:\AndroidStudioProjects\yaoguangmap\YaoGuang\src\main\AndroidManifest.xml:2:1-3:12
+INJECTED from F:\AndroidStudioProjects\yaoguangmap\YaoGuang\src\main\AndroidManifest.xml:2:1-3:12
+INJECTED from F:\AndroidStudioProjects\yaoguangmap\YaoGuang\src\main\AndroidManifest.xml:2:1-3:12
+	package
+		ADDED from F:\AndroidStudioProjects\yaoguangmap\YaoGuang\src\main\AndroidManifest.xml:2:70-96
+		INJECTED from F:\AndroidStudioProjects\yaoguangmap\YaoGuang\src\main\AndroidManifest.xml
+		INJECTED from F:\AndroidStudioProjects\yaoguangmap\YaoGuang\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from F:\AndroidStudioProjects\yaoguangmap\YaoGuang\src\main\AndroidManifest.xml
+		ADDED from F:\AndroidStudioProjects\yaoguangmap\YaoGuang\src\main\AndroidManifest.xml:2:1-3:12
+		INJECTED from F:\AndroidStudioProjects\yaoguangmap\YaoGuang\src\main\AndroidManifest.xml
+	xmlns:tools
+		ADDED from F:\AndroidStudioProjects\yaoguangmap\YaoGuang\src\main\AndroidManifest.xml:2:97-143
+	android:versionCode
+		INJECTED from F:\AndroidStudioProjects\yaoguangmap\YaoGuang\src\main\AndroidManifest.xml
+		ADDED from F:\AndroidStudioProjects\yaoguangmap\YaoGuang\src\main\AndroidManifest.xml:2:1-3:12
+		INJECTED from F:\AndroidStudioProjects\yaoguangmap\YaoGuang\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from F:\AndroidStudioProjects\yaoguangmap\YaoGuang\src\main\AndroidManifest.xml:2:11-69
+	android:installLocation
+		ADDED from F:\AndroidStudioProjects\yaoguangmap\YaoGuang\src\main\AndroidManifest.xml:2:144-184
+uses-sdk
+INJECTED from F:\AndroidStudioProjects\yaoguangmap\YaoGuang\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from F:\AndroidStudioProjects\yaoguangmap\YaoGuang\src\main\AndroidManifest.xml
+INJECTED from F:\AndroidStudioProjects\yaoguangmap\YaoGuang\src\main\AndroidManifest.xml
+INJECTED from F:\AndroidStudioProjects\yaoguangmap\YaoGuang\src\main\AndroidManifest.xml
+INJECTED from F:\AndroidStudioProjects\yaoguangmap\YaoGuang\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from F:\AndroidStudioProjects\yaoguangmap\YaoGuang\src\main\AndroidManifest.xml
+		ADDED from F:\AndroidStudioProjects\yaoguangmap\YaoGuang\src\main\AndroidManifest.xml
+		INJECTED from F:\AndroidStudioProjects\yaoguangmap\YaoGuang\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from F:\AndroidStudioProjects\yaoguangmap\YaoGuang\src\main\AndroidManifest.xml
+		ADDED from F:\AndroidStudioProjects\yaoguangmap\YaoGuang\src\main\AndroidManifest.xml
+		INJECTED from F:\AndroidStudioProjects\yaoguangmap\YaoGuang\src\main\AndroidManifest.xml

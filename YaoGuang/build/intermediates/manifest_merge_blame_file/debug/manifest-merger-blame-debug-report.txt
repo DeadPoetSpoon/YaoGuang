@@ -1,0 +1,15 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    xmlns:tools="http://schemas.android.com/tools"
+4    package="com.zks.YaoGuang"
+5    android:installLocation="preferExternal"
+6    android:versionCode="1"
+7    android:versionName="0.1" >
+8
+9    <uses-sdk
+10        android:minSdkVersion="16"
+10-->F:\AndroidStudioProjects\yaoguangmap\YaoGuang\src\main\AndroidManifest.xml
+11        android:targetSdkVersion="29" />
+11-->F:\AndroidStudioProjects\yaoguangmap\YaoGuang\src\main\AndroidManifest.xml
+12
+13</manifest>
